@@ -25,12 +25,28 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
+
+      - name: Print Directories and Files
+        run: |
+          echo "Directories:"
+          ls -d */
+
+          echo "Files:"
+          ls -p | grep -v /   # Print files excluding directories
       
       - name: Build Docker image
         run: docker buildx build --platform linux/amd64 -t 537792915666.dkr.ecr.us-east-1.amazonaws.com/spring-uscis:springuscis-latest .
       
       - name: Login to Amazon ECR
         run: echo "${{ secrets.ECR_PASS }}" | docker login -u AWS --password-stdin 537792915666.dkr.ecr.us-east-1.amazonaws.com
-      
+
+      - name: Print Directories and Files
+        run: |
+          echo "Directories:"
+          ls -d */
+
+          echo "Files:"
+          ls -p | grep -v /   # Print files excluding directories
+          
       - name: Push Docker image to Amazon ECR
         run: docker push 537792915666.dkr.ecr.us-east-1.amazonaws.com/spring-uscis:springuscis-latest
