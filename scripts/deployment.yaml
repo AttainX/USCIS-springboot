@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-spring-boot-app
+  name: uscis-spring-boot-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: my-spring-boot-app
+      app: uscis-spring-boot-app
   template:
     metadata:
       labels:
-        app: my-spring-boot-app
+        app: uscis-spring-boot-app
     spec:
       containers:
-      - name: my-spring-boot-app
-        image: <your-account-id>.dkr.ecr.us-west-2.amazonaws.com/my-spring-boot-app:latest
+      - name: uscis-spring-boot-app
+        image: 537792915666.dkr.ecr.us-east-1.amazonaws.com/spring-uscis:latest
         ports:
         - containerPort: 8080
