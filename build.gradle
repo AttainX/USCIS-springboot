@@ -1,8 +1,17 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.0.0.2929" // Add this line
+    }
+}
+
 plugins {
     id 'java'
     id 'org.springframework.boot' version '3.2.5'
     id 'io.spring.dependency-management' version '1.1.4'
-    id 'org.sonarqube' // Apply SonarQube plugin
+    id 'org.sonarqube' version '4.0.0.2929' // Apply SonarQube plugin with version
 }
 
 group = 'com.attainx'
@@ -25,18 +34,6 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:9.9.3" // Add this line
-    }
-}
-
-apply plugin: 'org.sonarqube' // Apply the SonarQube plugin
-
 
 // SonarQube configuration
 sonarqube {
