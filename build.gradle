@@ -26,6 +26,18 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:9.9.3" // Add this line
+    }
+}
+
+apply plugin: 'org.sonarqube' // Apply the SonarQube plugin
+
+
 // SonarQube configuration
 sonarqube {
     properties {
