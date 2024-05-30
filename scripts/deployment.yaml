@@ -17,5 +17,3 @@ spec:
         image: 537792915666.dkr.ecr.us-east-1.amazonaws.com/spring-uscis:springuscis-latest
         ports:
         - containerPort: 8080
-      imagePullSecrets:
-      - name: ecr-registry-secret
