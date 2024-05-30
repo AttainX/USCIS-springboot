@@ -6,14 +6,16 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: uscis-spring-boot-app
+      app: spring-boot-app
   template:
     metadata:
       labels:
-        app: uscis-spring-boot-app
+        app: spring-boot-app
     spec:
       containers:
-      - name: uscis-spring-boot-app
-        image: 537792915666.dkr.ecr.us-east-1.amazonaws.com/spring-uscis:latest
+      - name: spring-boot-container
+        image: 537792915666.dkr.ecr.us-east-1.amazonaws.com/spring-uscis:springuscis-latest
         ports:
         - containerPort: 8080
+      imagePullSecrets:
+      - name: ecr-registry-secret
