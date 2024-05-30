@@ -28,7 +28,6 @@ jobs:
         
 ## code piece only to use for debugging
       # - name: Print Directories and Files
-      
       #   run: |
       #     echo "Directories:"
       #     ls -d */
