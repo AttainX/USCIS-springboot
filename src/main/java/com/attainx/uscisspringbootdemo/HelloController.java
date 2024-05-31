@@ -8,7 +8,7 @@ public class HelloController {
 
 	@GetMapping("/")
 	public String index() {
-		return "Greetings from AttainX Spring Boot Demo for USCIS!";
+		return "Greetings from AttainX Spring Boot Demo for USCIS River!";
 	}
 
 }
