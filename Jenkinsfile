@@ -41,7 +41,12 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     sh '''
-                        sudo sonar-scanner \
+
+                        mkdir .sonar .sonar/cache .scannerwork
+                        sudo chmod -R 777 .sonar
+                        sudo chmod -R 777 .scannerwork
+                        
+                        sonar-scanner \
                         -Dsonar.projectKey=com.attainx:USCIS-springboot \
                         -Dsonar.projectName="USCIS Spring Boot Project" \
                         -Dsonar.projectVersion=1.0 \
