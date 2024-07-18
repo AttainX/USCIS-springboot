@@ -45,6 +45,9 @@ pipeline {
                         mkdir .sonar .sonar/cache .scannerwork
                         chmod -R 777 .sonar
                         chmod -R 777 .scannerwork
+
+                        mkdir /opt/sonar-scanner/.sonar/cache
+                        chmod -R 777 /opt/sonar-scanner/.sonar/cache
                         
                         sonar-scanner \
                         -Dsonar.projectKey=com.attainx:USCIS-springboot \
