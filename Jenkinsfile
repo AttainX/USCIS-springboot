@@ -12,7 +12,7 @@ pipeline {
             steps {
                 git(
                     url: 'https://github.com/AttainX/USCIS-springboot',
-                    branch: 'main'
+                    branch: 'dev'
                 )
             }
         }
