@@ -51,7 +51,8 @@ pipeline {
                         
                         mkdir -p $WORKSPACE/sonar_cache
                         chmod -R 777 $WORKSPACE/sonar_cache
-                        sonar-scanner \                        -Dsonar.projectKey=com.attainx:USCIS-springboot \
+                        sonar-scanner \   
+                        -Dsonar.projectKey=com.attainx:USCIS-springboot \
                         -Dsonar.projectName="USCIS Spring Boot Project" \
                         -Dsonar.projectVersion=1.0 \
                         -Dsonar.sources=src/main/java \
