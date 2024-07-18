@@ -31,36 +31,37 @@ pipeline {
         }
 
         
-        //         stage('SonarQube Analysis') {
-        //     agent {
-        //         docker {
-        //             image 'sonarsource/sonar-scanner-cli'
-        //             args '-v $WORKSPACE:/usr/src -v $WORKSPACE/sonar_cache:/opt/sonar-scanner/.sonar/cache'
-        //         }
-        //     }
-        //     steps {
-        //         withSonarQubeEnv('SonarQube') {
-        //             sh '''
+                stage('SonarQube Analysis') {
+            agent {
+                docker {
+                    image 'sonarsource/sonar-scanner-cli'
+                    args '-v $WORKSPACE:/usr/src -v $WORKSPACE/sonar_cache:/opt/sonar-scanner/.sonar/cache'
+                }
+            }
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh '''
 
-        //                 // mkdir .sonar .sonar/cache .scannerwork
-        //                 // chmod -R 777 .sonar
-        //                 // chmod -R 777 .scannerwork
+                        // mkdir .sonar .sonar/cache .scannerwork
+                        // chmod -R 777 .sonar
+                        // chmod -R 777 .scannerwork
 
-        //                 mkdir /opt/sonar-scanner/.sonar/cache
-        //                 chmod -R 777 /opt/sonar-scanner/.sonar/cache
+                        // mkdir /opt/sonar-scanner/.sonar/cache
+                        // chmod -R 777 /opt/sonar-scanner/.sonar/cache
                         
-        //                 sonar-scanner \
-        //                 -Dsonar.projectKey=com.attainx:USCIS-springboot \
-        //                 -Dsonar.projectName="USCIS Spring Boot Project" \
-        //                 -Dsonar.projectVersion=1.0 \
-        //                 -Dsonar.sources=src/main/java \
-        //                 -Dsonar.java.binaries=build/classes \
-        //                 -Dsonar.sourceEncoding=UTF-8 \
-        //                 -Dsonar.login=$SONAR_LOGIN
-        //             '''
-        //         }
-        //     }
-        // }
+                        mkdir -p $WORKSPACE/sonar_cache
+                        chmod -R 777 $WORKSPACE/sonar_cache
+                        sonar-scanner \                        -Dsonar.projectKey=com.attainx:USCIS-springboot \
+                        -Dsonar.projectName="USCIS Spring Boot Project" \
+                        -Dsonar.projectVersion=1.0 \
+                        -Dsonar.sources=src/main/java \
+                        -Dsonar.java.binaries=build/classes \
+                        -Dsonar.sourceEncoding=UTF-8 \
+                        -Dsonar.login=$SONAR_LOGIN
+                    '''
+                }
+            }
+        }
 
         stage('Build Docker Image and Push to ECR') {
             steps {
