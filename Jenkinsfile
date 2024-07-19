@@ -40,7 +40,7 @@ pipeline {
                 }
             }
             steps {
-                withSonarQubeEnv('SonarQube') {
+                // withSonarQubeEnv('SonarQube') {
                     sh '''
 
     
@@ -53,7 +53,7 @@ pipeline {
                         -Dsonar.sourceEncoding=UTF-8 \
                         -Dsonar.login=$SONAR_LOGIN
                     '''
-                }
+                // }
             }
         }
 
