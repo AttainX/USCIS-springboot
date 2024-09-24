@@ -33,12 +33,13 @@ pipeline {
 
         
                 stage('SonarQube Analysis') {
-            agent {
+            // agent {
                 // docker {
                     image 'sonarsource/sonar-scanner-cli'
                     args '-v $WORKSPACE:/usr/src -v $WORKSPACE/sonar_cache:/opt/sonar-scanner/.sonar/cache'
                 // }
-            }
+            // }
+                    
             steps {
                 // withSonarQubeEnv('SonarQube') {
                     sh '''
