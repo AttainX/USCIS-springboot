@@ -71,7 +71,7 @@ pipeline {
             steps {
                 script {
                     // Install Trivy
-                    sh 'curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin'
+                    // sh 'curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin'
 
                     // Run Trivy scan
                     sh 'trivy image 537792915666.dkr.ecr.us-east-1.amazonaws.com/spring-uscis:springuscis-latest || true'
