@@ -32,32 +32,32 @@ pipeline {
         }
 
         
-                stage('SonarQube Analysis') {
-            agent {
-                any {
-                    image 'sonarsource/sonar-scanner-cli'
-                    args '-v $WORKSPACE:/usr/src -v $WORKSPACE/sonar_cache:/opt/sonar-scanner/.sonar/cache'
-                }
-            }
+//                 stage('SonarQube Analysis') {
+//             agent {
+//                 any {
+//                     image 'sonarsource/sonar-scanner-cli'
+//                     args '-v $WORKSPACE:/usr/src -v $WORKSPACE/sonar_cache:/opt/sonar-scanner/.sonar/cache'
+//                 }
+//             }
                     
-            steps {
-                // withSonarQubeEnv('SonarQube') {
-                    sh '''
+//             steps {
+//                 // withSonarQubeEnv('SonarQube') {
+//                     sh '''
 
     
-                        sonar-scanner 
-                        -Dsonar.projectKey=com.attainx:USCIS-springboot \
-                        -Dsonar.projectName="USCIS Spring Boot Project" \
-                        -Dsonar.projectVersion=1.0 \
-                        -Dsonar.sources=src/main/java \
-                        -Dsonar.java.binaries=build/classes \
-                        -Dsonar.sourceEncoding=UTF-8 \
-                    '''
-// /                        -Dsonar.login=$SONAR_LOGIN
+//                         sonar-scanner 
+//                         -Dsonar.projectKey=com.attainx:USCIS-springboot \
+//                         -Dsonar.projectName="USCIS Spring Boot Project" \
+//                         -Dsonar.projectVersion=1.0 \
+//                         -Dsonar.sources=src/main/java \
+//                         -Dsonar.java.binaries=build/classes \
+//                         -Dsonar.sourceEncoding=UTF-8 \
+//                     '''
+// // /                        -Dsonar.login=$SONAR_LOGIN
 
-                // }
-            }
-        }
+//                 // }
+//             }
+//         }
 
         stage('Build Docker Image and Push to ECR') {
             steps {
