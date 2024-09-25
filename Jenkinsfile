@@ -5,7 +5,7 @@ pipeline {
         AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
         AWS_DEFAULT_REGION = 'us-east-1'
-        SONAR_LOGIN = credentials('sonar-login')
+        // SONAR_LOGIN = credentials('sonar-login')
     }
 
     stages {
@@ -52,8 +52,9 @@ pipeline {
                         -Dsonar.sources=src/main/java \
                         -Dsonar.java.binaries=build/classes \
                         -Dsonar.sourceEncoding=UTF-8 \
-                        -Dsonar.login=$SONAR_LOGIN
                     '''
+// /                        -Dsonar.login=$SONAR_LOGIN
+
                 // }
             }
         }
