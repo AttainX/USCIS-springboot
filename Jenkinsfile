@@ -52,6 +52,8 @@ pipeline {
 //                         -Dsonar.sources=src/main/java \
 //                         -Dsonar.java.binaries=build/classes \
 //                         -Dsonar.sourceEncoding=UTF-8 \
+                            //-Dsonar.host.url=http://98.84.109.55:9000 \
+                        // -Dsonar.login=${SONAR_LOGIN}
 //                     '''
 // // /                        -Dsonar.login=$SONAR_LOGIN
 
