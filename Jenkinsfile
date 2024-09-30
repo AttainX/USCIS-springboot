@@ -32,34 +32,34 @@ pipeline {
         }
 
         
-//                 stage('SonarQube Analysis') {
-//             agent {
-//                 any {
-//                     image 'sonarsource/sonar-scanner-cli'
-//                     args '-v $WORKSPACE:/usr/src -v $WORKSPACE/sonar_cache:/opt/sonar-scanner/.sonar/cache'
-//                 }
-//             }
+                stage('SonarQube Analysis') {
+            agent {
+                any {
+                    image 'sonarsource/sonar-scanner-cli'
+                    args '-v $WORKSPACE:/usr/src -v $WORKSPACE/sonar_cache:/opt/sonar-scanner/.sonar/cache'
+                }
+            }
                     
-//             steps {
-//                 // withSonarQubeEnv('SonarQube') {
-//                     sh '''
+            steps {
+                // withSonarQubeEnv('SonarQube') {
+                    sh '''
 
     
-//                         sonar-scanner 
-//                         -Dsonar.projectKey=com.attainx:USCIS-springboot \
-//                         -Dsonar.projectName="USCIS Spring Boot Project" \
-//                         -Dsonar.projectVersion=1.0 \
-//                         -Dsonar.sources=src/main/java \
-//                         -Dsonar.java.binaries=build/classes \
-//                         -Dsonar.sourceEncoding=UTF-8 \
-                            //-Dsonar.host.url=http://98.84.109.55:9000 \
-                        // -Dsonar.login=${SONAR_LOGIN}
-//                     '''
-// // /                        -Dsonar.login=$SONAR_LOGIN
+                        sonar-scanner 
+                        -Dsonar.projectKey=com.attainx:USCIS-springboot \
+                        -Dsonar.projectName="uscis" \
+                        -Dsonar.projectVersion=1.0 \
+                        -Dsonar.sources=src/main/java \
+                        -Dsonar.java.binaries=build/classes \
+                        -Dsonar.sourceEncoding=UTF-8 \
+                        -Dsonar.host.url=http://3.91.172.35:9000 \
+                        -Dsonar.login=sqp_2572f8f643881371be927f2e55ed9225208d04d5
+                    '''
+// /                        -Dsonar.login=$SONAR_LOGIN
 
-//                 // }
-//             }
-//         }
+                // }
+            }
+        }
 
         stage('Build Docker Image and Push to ECR') {
             steps {
