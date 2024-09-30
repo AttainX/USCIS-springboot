@@ -64,6 +64,7 @@ pipeline {
         stage('Build Docker Image and Push to ECR') {
             steps {
                 sh """
+                    echo $USER
                     aws ecr get-login-password | docker login -u AWS --password-stdin 537792915666.dkr.ecr.us-east-1.amazonaws.com
 
                     docker buildx build --platform linux/amd64 -t 537792915666.dkr.ecr.us-east-1.amazonaws.com/spring-uscis:springuscis-latest --push .
