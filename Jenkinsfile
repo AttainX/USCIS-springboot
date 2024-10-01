@@ -9,6 +9,10 @@ pipeline {
         AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
         AWS_DEFAULT_REGION = 'us-east-1'
+
+        SONAR_TOKEN = credentials('sonar-token')
+        SONAR_PROJECT_KEY = 'com.attainx:USCIS-springboot'
+        SONAR_HOST_URL = 'http://3.238.8.141:9000'
         // SONAR_LOGIN = credentials('sonar-login')
     }
 
@@ -45,6 +49,7 @@ pipeline {
             }
                     
             steps {
+                
                 withSonarQubeEnv('SonarQube') {
                     sh '''
 
