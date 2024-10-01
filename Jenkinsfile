@@ -50,7 +50,10 @@ pipeline {
 
                         echo "Using JAVA_HOME: $JAVA_HOME"
                         $JAVA_HOME/bin/java -version  # Check Java version during pipeline execution
-                        
+
+                        # Ensure SonarScanner uses Java 17 by setting JAVA_HOME before execution
+                        export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+                        export PATH=$JAVA_HOME/bin:$PATH
     
                         /opt/sonar-scanner/bin/sonar-scanner 
                         -Dsonar.projectKey=com.attainx:USCIS-springboot \
