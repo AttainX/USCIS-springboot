@@ -62,7 +62,7 @@ pipeline {
 
     
                         /opt/sonar-scanner/bin/sonar-scanner 
-                        -Dsonar.projectKey=com.attainx:USCIS-springboot \
+                        -Dsonar.projectKey=$SONAR_PROJECT_KEY \
                         -Dsonar.projectName="uscis" \
                         -Dsonar.projectVersion=1.0 \
                         -Dsonar.sources=src/main/java \
