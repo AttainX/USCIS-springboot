@@ -41,7 +41,7 @@ pipeline {
             }
                     
             steps {
-                // withSonarQubeEnv('SonarQube') {
+                withSonarQubeEnv('SonarQube') {
                     sh '''
 
     
@@ -57,7 +57,7 @@ pipeline {
                     '''
 // /                        -Dsonar.login=$SONAR_LOGIN
 
-                // }
+                }
             }
         }
 
