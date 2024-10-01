@@ -61,7 +61,7 @@ pipeline {
                         echo "SONAR_HOST_URL: $SONAR_HOST_URL"
 
     
-                        /opt/sonar-scanner/bin/sonar-scanner 
+                        /opt/sonar-scanner/bin/sonar-scanner \
                         -Dsonar.projectKey=$SONAR_PROJECT_KEY \
                         -Dsonar.projectName="uscis" \
                         -Dsonar.projectVersion=1.0 \
