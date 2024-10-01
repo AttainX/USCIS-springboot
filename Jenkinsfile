@@ -42,10 +42,10 @@ pipeline {
         
                 stage('SonarQube Analysis') {
             agent {
-                any {
-                    image 'sonarsource/sonar-scanner-cli'
-                    args '-v $WORKSPACE:/usr/src -v $WORKSPACE/sonar_cache:/opt/sonar-scanner/.sonar/cache'
-                }
+                // any {
+                //     image 'sonarsource/sonar-scanner-cli'
+                //     args '-v $WORKSPACE:/usr/src -v $WORKSPACE/sonar_cache:/opt/sonar-scanner/.sonar/cache'
+                // }
             }
                     
             steps {
