@@ -3,8 +3,8 @@ pipeline {
     
     environment {
 
-        JAVA_HOME = "/usr/lib/jvm/java-17-openjdk-amd64"
-        PATH = "${JAVA_HOME}/bin:${env.PATH}"
+        // JAVA_HOME = "/usr/lib/jvm/java-17-openjdk-amd64"
+        // PATH = "${JAVA_HOME}/bin:${env.PATH}"
         
         AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
@@ -47,13 +47,6 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     sh '''
-
-                        echo "Using JAVA_HOME: $JAVA_HOME"
-                        $JAVA_HOME/bin/java -version  # Check Java version during pipeline execution
-
-                        # Ensure SonarScanner uses Java 17 by setting JAVA_HOME before execution
-                        export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
-                        export PATH=$JAVA_HOME/bin:$PATH
     
                         /opt/sonar-scanner/bin/sonar-scanner 
                         -Dsonar.projectKey=com.attainx:USCIS-springboot \
