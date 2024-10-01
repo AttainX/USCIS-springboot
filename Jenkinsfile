@@ -47,6 +47,11 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     sh '''
+
+                        echo "SONAR_TOKEN: $SONAR_TOKEN"
+                        echo "SONAR_PROJECT_KEY: $SONAR_PROJECT_KEY"
+                        echo "SONAR_HOST_URL: $SONAR_HOST_URL"
+
     
                         /opt/sonar-scanner/bin/sonar-scanner 
                         -Dsonar.projectKey=com.attainx:USCIS-springboot \
