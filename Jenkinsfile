@@ -61,7 +61,7 @@ pipeline {
                         echo "SONAR_HOST_URL: $SONAR_HOST_URL"
 
                         pwd
-                        ls build/classes
+                        ls 
     
                         /opt/sonar-scanner/bin/sonar-scanner \
                         -Dsonar.projectKey=$SONAR_PROJECT_KEY \
