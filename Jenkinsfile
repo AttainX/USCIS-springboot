@@ -51,6 +51,9 @@ pipeline {
             steps {
                 
                 withSonarQubeEnv('SonarQube') {
+
+                    
+                    
                     sh '''
 
                         echo "SONAR_TOKEN: $SONAR_TOKEN"
@@ -59,7 +62,7 @@ pipeline {
 
     
                         /opt/sonar-scanner/bin/sonar-scanner 
-                        -Dsonar.projectKey=com.attainx:USCIS-springboot \
+                        -sonar.projectKey=com.attainx:USCIS-springboot \
                         -Dsonar.projectName="uscis" \
                         -Dsonar.projectVersion=1.0 \
                         -Dsonar.sources=src/main/java \
