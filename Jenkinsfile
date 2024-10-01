@@ -12,7 +12,6 @@ pipeline {
 
         SONAR_TOKEN = credentials('sonar-token')
         SONAR_PROJECT_KEY = 'com.attainx:USCIS-springboot'
-        sonar.projectKey = 'com.attainx:USCIS-springboot'
         SONAR_HOST_URL = 'http://3.238.8.141:9000'
         // SONAR_LOGIN = credentials('sonar-login')
     }
