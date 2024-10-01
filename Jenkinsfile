@@ -45,14 +45,14 @@ pipeline {
                     sh '''
 
     
-                        sonar-scanner 
+                        /opt/sonar-scanner/bin/sonar-scanner 
                         -Dsonar.projectKey=com.attainx:USCIS-springboot \
                         -Dsonar.projectName="uscis" \
                         -Dsonar.projectVersion=1.0 \
                         -Dsonar.sources=src/main/java \
                         -Dsonar.java.binaries=build/classes \
                         -Dsonar.sourceEncoding=UTF-8 \
-                        -Dsonar.host.url=http://3.91.172.35:9000 \
+                        -Dsonar.host.url=http://3.238.8.141:9000 \
                         -Dsonar.login=sqp_2572f8f643881371be927f2e55ed9225208d04d5
                     '''
 // /                        -Dsonar.login=$SONAR_LOGIN
