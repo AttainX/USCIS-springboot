@@ -102,7 +102,6 @@ pipeline {
             }
         }
 
-        
         stage('Deploy to EKS') {
             steps {
                 script {
