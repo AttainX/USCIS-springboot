@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+
     environment {
 
         // JAVA_HOME = "/usr/lib/jvm/java-17-openjdk-amd64"
