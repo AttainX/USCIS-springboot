@@ -106,7 +106,7 @@ pipeline {
         stage('Deploy to EKS') {
             steps {
                 script {
-                    def clusterName = "jenkins-spring-cluster"
+                    def clusterName = "jenkins-spring-cluster-demo"
                     def existingClusters = sh(script: 'aws eks list-clusters --query "clusters" --output text', returnStdout: true).trim()
                     
                     if (!existingClusters.contains(clusterName)) {
