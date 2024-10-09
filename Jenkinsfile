@@ -4,7 +4,7 @@ pipeline {
 
     environment {
     
-        // JAVA_HOME = "/usr/lib/jvm/java-17-openjdk-amd64"
+        // JAVA_HOME = "/usr/lib/jvm/java-17-openjdk-amd64
         // PATH = "${JAVA_HOME}/bin:${env.PATH}"
         
         AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
